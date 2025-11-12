@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["test/**/*.ts", "test/**/*.d.ts"],
+  "exclude": ["./*.ts", "src"],
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "esnext", // 或其他支持 import.meta 的值
+    "moduleResolution": "node"
+  }
+}
