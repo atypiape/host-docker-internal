@@ -34,19 +34,27 @@ npm install host-docker-internal
 
 ## 💻 Example
 
+### Docker Host
+
 ```js
-import { getDockerHost, getContainerIp, isValidIp } from 'host-docker-internal';
+import { getDockerHost, isValidIp } from 'host-docker-internal';
 
 const host = getDockerHost();
 console.log(host);
 console.log(isValidIp(host));
 console.log(host === 'host.docker.internal');
 
+await fetch(`http://${host}:3000/api/hello`);
+```
+
+### Container IP
+
+```js
+import { getContainerIp, isValidIp } from 'host-docker-internal';
+
 const containerIp = getContainerIp();
 console.log(containerIp);
 console.log(isValidIp(containerIp));
-
-await fetch(`http://${host}:3000/api/hello`);
 ```
 
 ## 📝 Remark
