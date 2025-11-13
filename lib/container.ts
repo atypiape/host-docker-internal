@@ -39,7 +39,7 @@ function resolveNetworkInterfaces(): string {
     }
   }
 
-  console.debug('[HDI] os.networkInterfaces() failed.');
+  console.debug('[HDI] <Warn> os.networkInterfaces() failed.');
   return '';
 }
 
@@ -53,7 +53,10 @@ function resolveHostname(): string {
       return ip;
     }
   } catch (e) {
-    console.debug('[HDI] execSync("hostname -i") error:', (e as Error).message);
+    console.debug(
+      '[HDI] <Warn> execSync("hostname -i") error:',
+      (e as Error).message,
+    );
   }
   return '';
 }

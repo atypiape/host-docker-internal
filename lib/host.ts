@@ -57,7 +57,7 @@ export function getDockerHost(): string {
 function resolveProcNetRoute(): string {
   try {
     if (!existsSync('/proc/net/route')) {
-      console.debug('[HDI] file not found: /proc/net/route');
+      console.debug('[HDI] <Warn> file not found: /proc/net/route');
       return '';
     }
 
@@ -79,10 +79,13 @@ function resolveProcNetRoute(): string {
       return ip;
     }
   } catch (error) {
-    console.debug('[HDI] fs.readFileSync("/proc/net/route") error:', error);
+    console.debug(
+      '[HDI] <Warn> fs.readFileSync("/proc/net/route") error:',
+      error,
+    );
   }
 
-  console.debug('[HDI] resolveProcNetRoute() faild.');
+  console.debug('[HDI] <Warn> resolveProcNetRoute() faild.');
   return '';
 }
 
@@ -92,7 +95,7 @@ function resolveProcNetRoute(): string {
 function resolveEtcHosts(): string {
   try {
     if (!existsSync('/etc/hosts')) {
-      console.debug('[HDI] file not found: /etc/hosts');
+      console.debug('[HDI] <Warn> file not found: /etc/hosts');
       return '';
     }
 
@@ -116,10 +119,10 @@ function resolveEtcHosts(): string {
       return ip;
     }
   } catch (error) {
-    console.debug('[HDI] fs.readFileSync("/etc/hosts") error:', error);
+    console.debug('[HDI] <Warn> fs.readFileSync("/etc/hosts") error:', error);
   }
 
-  console.debug('[HDI] resolveEtcHosts() faild.');
+  console.debug('[HDI] <Warn> resolveEtcHosts() faild.');
   return '';
 }
 
@@ -136,9 +139,9 @@ function resolveNslookup(): boolean {
   } catch (e) {
     const { message = '' } = e as Error;
     if (message.includes('not found')) {
-      console.debug('[HDI] nslookup: not found.');
+      console.debug('[HDI] <Warn> nslookup: not found.');
     } else {
-      console.debug('[HDI] exec nslookup error:', message);
+      console.debug('[HDI] <Warn> exec nslookup error:', message);
     }
   }
   return false;
@@ -157,9 +160,9 @@ function resolveCurl(): boolean {
   } catch (e) {
     const { message = '' } = e as Error;
     if (message.includes('not found')) {
-      console.debug('[HDI] curl: not found.');
+      console.debug('[HDI] <Warn> curl: not found.');
     } else {
-      console.debug('[HDI] exec curl error:', message);
+      console.debug('[HDI] <Warn> exec curl error:', message);
     }
   }
   return false;
