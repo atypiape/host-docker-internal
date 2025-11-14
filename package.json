@@ -1,6 +1,6 @@
 {
   "name": "host-docker-internal",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Fetch Docker host IP/hostname from inside container.",
   "type": "module",
   "author": "Atypiape",
@@ -15,17 +15,11 @@
   ],
   "miniprogram": "dist",
   "keywords": [
-    "host.docker.internal",
-    "docker-host",
-    "docker-host-ip",
-    "docker-host-name",
-    "docker-ip",
-    "host-gateway",
     "docker",
     "host",
-    "gateway",
     "ip",
     "container",
+    "gateway",
     "internal",
     "inside"
   ],
